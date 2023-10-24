@@ -37,7 +37,7 @@ export default function Write() {
   };
 
   return (
-    <div className="bg-white max-w-2xl mx-auto p-5 rounded-lg shadow-md">
+    <div className="bg-white w-full mx-auto p-5 rounded-lg shadow-md">
       <label className=" mb-2 block font-bold text-xl" htmlFor="title">
         제목
       </label>

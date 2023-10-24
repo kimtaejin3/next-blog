@@ -3,6 +3,7 @@ import Image from "next/image";
 import posts_data from "@/mock/posts.json";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BsFillTrash3Fill, BsFillPencilFill } from "react-icons/bs";
 
 type a = {
   _id: number;
@@ -28,15 +29,25 @@ const getPosts = async () => {
 
 export default async function Home() {
   const { posts } = await getPosts();
-  // console.log(posts);
-  // const posts = useState<any>(posts_data);
+  if (posts === undefined) {
+    return;
+  }
   return (
     <main className="">
       {posts?.reverse().map((post: a) => {
         return (
           <div key={post._id} className="bg-white p-5 rounded-xl mb-7">
-            <h2 className="font-bold text-2xl mb-5">{post.title}</h2>
-            <p>{post.content}</p>
+            <div className="mb-5 flex justify-between">
+              <h2 className="font-bold text-2xl">{post.title}</h2>
+              <div className="flex gap-3">
+                <BsFillPencilFill
+                  className="cursor-pointer hover:scale-125"
+                  color="gray"
+                />
+                <BsFillTrash3Fill className=" hover:scale-125 cursor-pointer text-red-400" />
+              </div>
+            </div>
+            <p className="text break-words">{post.content}</p>
           </div>
         );
       })}

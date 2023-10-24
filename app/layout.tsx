@@ -15,19 +15,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="bg-blue-500">
-          <ul className="max-w-6xl mx-auto px-5 text-white flex gap-x-7">
-            <li>
-              <h1 className="text-3xl font-bold pt-2 font-body">
-                <Link href="/">My Blog</Link>
-              </h1>
-            </li>
-            <li className="p-4">
-              <Link href="/write">글쓰기</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="px-5 max-w-6xl mx-auto pt-10">{children}</div>
+        <ul className="bg-blue-500 px-5 max-w-xl mx-auto text-white flex gap-x-7 mb-5 mt-5">
+          <li>
+            <h1 className="text-3xl font-bold pt-2 font-body">
+              <Link href="/">My Blog</Link>
+            </h1>
+          </li>
+          <li className="p-4 ml-auto">
+            <Link
+              className="border py-1 px-5 -mt-1 block hover:bg-slate-100 hover:text-blue-400"
+              href="/write"
+            >
+              글쓰기
+            </Link>
+          </li>
+        </ul>
+        <div className="max-w-xl mx-auto">{children}</div>
       </body>
     </html>
   );
